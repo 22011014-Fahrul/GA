@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>E-Wallet Overview</title>
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap">
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(#2b1055, #2c0624);
+            overflow-x: hidden;
+        }
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 100px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            z-index: 10000;
+        }
+
+        header .logo {
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 2em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-left: 20px;
+        }
+
+        .ewallet-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+            color: #fff;
+            background-image: url('ewallet.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .ewallet-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .ewallet-box {
+            background-color: rgba(15, 20, 79, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            width: 35%;
+            margin-bottom: 20px;
+        }
+
+        .ewallet-box h2 {
+            font-size: 1.7em;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .balance {
+            font-size: 2em;
+            color: #fff;
+            margin: 10px 0;
+        }
+
+        .month-heading {
+            font-size: 5%;
+            color: #fff;
+            margin: 20px 0;
+        }
+
+        .transaction-list {
+            list-style: none;
+            text-align: left;
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        .transaction-item {
+            font-size: 1em;
+            color: #fff;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="Homepage.html" class="logo">FahWallet</a>
+    </header>
+
+    <div class="ewallet-container">
+        <div class="ewallet-info">
+            <h2>E-Wallet Overview</h2>
+            <p class="balance">Current Balance: SGD 8,654.32</p>
+        </div>
+
+        <div class="ewallet-box">
+            <ul class="transaction-list">
+                <li class="transaction-item">Transaction: $199.99 to Footlocker</li>
+                <li class="transaction-item">Transaction: $3.69 to 7 Eleven</li>
+                <li class="transaction-item">Transaction: $4.2k to LTA</li>
+                
+            </ul>
+        </div>
+
+        <div class="ewallet-box">
+            <ul class="transaction-list">
+                <li class="transaction-item">Transaction: paid $16.00 to NTUC Fairprice </li>
+                <li class="transaction-item">Transaction:  received $50.00 from Osama Bin Laden</li>
+                <li class="transaction-item">Transaction:  received $369.00 from Randy</li>
+            </ul>
+        </div>
+
+        <div class="ewallet-box">
+            <ul class="transaction-list">
+                <li class="transaction-item">Transaction: paid $85.00 to MekDonal</li>
+                <li class="transaction-item">Transaction: paid $20.00 to EzLink</li>
+                
+            </ul>
+        </div>
+
+
+
+    </div>
+
+</body>
+
+</html>

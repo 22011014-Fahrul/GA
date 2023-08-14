@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap">
+    <style>
+     
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(#2b1055, #2c0624);
+            overflow-x: hidden;
+        }
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10000;
+        }
+
+        header .logo {
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 2em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header ul li {
+            list-style: none;
+            margin-left: 20px;
+        }
+
+        header ul li a {
+            text-decoration: none;
+            padding: 6px 15px;
+            color: #fff;
+            border-radius: 20px;
+        }
+
+        header ul li a:hover,
+        header ul li a.active {
+            background: #fff;
+            color: #2b1055;
+        }
+
+        section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            padding: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, #1c0522, transparent);
+            z-index: 1000;
+        }
+
+        section img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        section img#money {
+            mix-blend-mode: screen;
+        }
+
+        #btn {
+            text-decoration: none;
+            display: inline-block;
+            padding: 8px 30px;
+            border-radius: 40px;
+            background: #fff;
+            color: #2b1055;
+            font-size: 1.5em;
+            z-index: 9;
+            transform: translateY(100px);
+        }
+
+        .sec {
+            position: relative;
+            padding: 100px;
+            background: #1c0522;
+        }
+
+        .sec h2 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .sec p {
+            font-size: 1em;
+            color: #fff;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .row h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            color: #fff;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+
+        .why-us {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .why-us h2 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .why-us p {
+            font-size: 1em;
+            color: #fff;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        .dashboard-container {
+            display: flex;
+            justify-content: center;
+            
+            align-items: center;
+           
+            height: 100vh;
+            
+            padding: 10px;
+            
+        }
+
+        .dashboard-option {
+            flex: 1;
+            margin: 0 5px;
+            
+            padding: 10px;
+            
+            background-color: rgba(190, 203, 244, 0.7);
+            border-radius: 8px;
+            
+            text-align: center;
+        }
+
+        .dashboard-option h3 {
+            font-size: 1.2em;
+            /* Slightly smaller font size */
+            color: #0d0d0d;
+            margin-bottom: 5px;
+            /* Reduced margin */
+        }
+
+
+        .dashboard-option.pay-bills {
+            padding: 20px;
+
+        }
+
+        .dashboard-option p {
+            font-size: 1em;
+            color: #111010;
+            /* Set the font color to white */
+            margin: 5px 0;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('creditcard.jpg');
+            background-size: cover;
+            filter: blur(8px);
+            z-index: -1;
+        }
+
+        .popup-box {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .popup-box h3 {
+            margin-bottom: 10px;
+        }
+
+        .popup-box p {
+            margin: 0;
+        }
+
+        .popup-box.show {
+            display: block;
+        }
+    </style>
+</head>
+<header>
+    <a href="Homepage.html" class="logo">FahWallet</a>
+</header>
+<body>
+
+    <div class="dashboard-container">
+        <a href="ewalletoverview.html" class="dashboard-option">
+            <h3>E-wallet Overview</h3>
+            <p>View your account balance and transaction history.</p>
+        </a>
+        <a href="linkcard.html" class="dashboard-option">
+            <h3>Link Credit Card</h3>
+            <p>Link a credit card to your account for easy payments.</p>
+        </a>
+        <a href="paybills.html" class="dashboard-option pay-bills"> 
+            <h3>Pay Bills</h3>
+            <p>Pay your bills online quickly and securely.</p>
+        </a>
+        <a href="moneytransfer.html" class="dashboard-option transfer money">
+            <h3>Transfer Money</h3>
+            <p>Transfer money to friends and family effortlessly.</p>
+        </a>
+    </div>
+
+</body>
+
+</html>

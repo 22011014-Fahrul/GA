@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Money Transfer</title>
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap">
+    <style>
+       
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(#2b1055, #7597de);
+            overflow-x: hidden;
+        }
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10000;
+        }
+
+        header .logo {
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 2em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header ul li {
+            list-style: none;
+            margin-left: 20px;
+        }
+
+        header ul li a {
+            text-decoration: none;
+            padding: 6px 15px;
+            color: hwb(260 97% 2%);
+            border-radius: 20px;
+        }
+
+        header ul li a:hover,
+        header ul li a.active {
+            background: #fff;
+            color: #2b1055;
+        }
+
+        section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            padding: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, #1c0522, transparent);
+            z-index: 1000;
+        }
+
+        section img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        section img#money {
+            mix-blend-mode: screen;
+        }
+
+        #btn {
+            text-decoration: none;
+            display: inline-block;
+            padding: 8px 30px;
+            border-radius: 40px;
+            background: #fff;
+            color: #2b1055;
+            font-size: 1.5em;
+            z-index: 9;
+            transform: translateY(100px);
+        }
+
+        .sec {
+            position: relative;
+            padding: 100px;
+            background: #1c0522;
+        }
+
+        .sec h2 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            color: hwb(0 94% 4%);
+        }
+
+        .sec p {
+            font-size: 1em;
+            color: #fff;
+        }
+
+        .money-transfer-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* Full viewport height */
+            padding: 10px;
+            /* Reduced padding */
+            background: url('money transfer.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .transfer-form {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: #fefbfb;
+            /* White text color */
+            width: 400px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .transfer-form h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            font-weight: bold;
+            /* Bold text */
+        }
+
+        .transfer-form p {
+            font-weight: bold;
+            /* Bold text */
+            display: block;
+            margin-top: 10px;
+        }
+
+        .transfer-form label {
+            display: block;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .transfer-form input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .transfer-form button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #2b1055;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        .transfer-form button:hover {
+            background-color: #2b1055;
+            color: #fff;
+        }
+        .confirmation-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
+
+        .confirmation-content {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: #2b1055;
+            width: 300px;
+            max-width: 80%; /* Added maximum width */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .confirmation-content h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .confirmation-content p {
+            margin-top: 10px;
+            font-size: 1.1em;
+        }
+
+        .confirmation-content button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #2b1055;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .confirmation-content button:hover {
+            background-color: #2b1055;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <header>
+            <a href="Homepage.html" class="logo">FahWallet</a>
+        </header>
+    </header>
+
+    <div class="money-transfer-container">
+        <div class="transfer-form">
+            <h2>Money Transfer</h2>
+            <form>
+                <label for="recipient">Recipient Phone Number, UEN Reference Number, or Bank Account Number</label>
+                <input type="text" id="recipient" required>
+                <label for="amount">Amount (SGD) - Limit $3000</label>
+                <input type="number" id="amount" min="0" max="3000" step="0.01" required>
+                <button type="submit">Transfer</button>
+            </form>
+        </div>
+    </div>
+    <div class="confirmation-popup" id="confirmationPopup">
+        <div class="confirmation-content">
+            <h2>Confirm Money Transfer</h2>
+            <p>Recipient: <span id="confirmRecipient"></span></p>
+            <p>Amount (SGD): <span id="confirmAmount"></span></p>
+            <button id="confirmTransferBtn">Confirm Transfer</button>
+            <button id="cancelTransferBtn">Cancel</button>
+        </div>
+    </div>
+<script>
+const transferForm = document.querySelector('.transfer-form');
+const confirmationPopup = document.getElementById('confirmationPopup');
+const confirmRecipientSpan = document.getElementById('confirmRecipient');
+const confirmAmountSpan = document.getElementById('confirmAmount');
+const confirmTransferBtn = document.getElementById('confirmTransferBtn');
+const cancelTransferBtn = document.getElementById('cancelTransferBtn');
+
+transferForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const recipientInput = document.getElementById('recipient');
+    const amountInput = document.getElementById('amount');
+
+    const recipient = recipientInput.value;
+    const amount = amountInput.value;
+
+    confirmRecipientSpan.textContent = recipient;
+    confirmAmountSpan.textContent = amount;
+
+    confirmationPopup.style.display = 'block';
+});
+
+cancelTransferBtn.addEventListener('click', () => {
+    confirmationPopup.style.display = 'none';
+});
+
+confirmTransferBtn.addEventListener('click', () => {
+ 
+    confirmationPopup.style.display = 'none';
+});
+
+</script>
+   
+</body>
+
+
+</html>

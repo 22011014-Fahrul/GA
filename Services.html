@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FahWallet Home Page</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        body {
+    min-height: 100vh;
+    background: linear-gradient(#2b1055, #7597de), url('Services.jpg') center/cover no-repeat;
+    overflow-x: hidden;
+}
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10000;
+        }
+
+        header .logo {
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 2em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header ul li {
+            list-style: none;
+            margin-left: 20px;
+        }
+
+        header ul li a {
+            text-decoration: none;
+            padding: 6px 15px;
+            color: #fff;
+            border-radius: 20px;
+        }
+
+        header ul li a:hover,
+        header ul li a.active {
+            background: #fff;
+            color: #2b1055;
+        }
+
+        section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            padding: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, #1c0522, transparent);
+            z-index: 1000;
+        }
+
+        section img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        section img#money {
+            mix-blend-mode: screen;
+        }
+
+        .sec {
+            position: relative;
+            padding: 100px;
+            background: #1c0522;
+        }
+
+        .sec h2 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .sec p {
+            font-size: 1em;
+            color: #fff;
+        }
+
+      
+        .services-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 100px;
+             background-size: cover;
+            background-image: url('dark-wallpapers.webp');
+            color: #fff;
+        }
+
+        .service {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            margin: 10px;
+        }
+
+        .service-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .service-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            font-weight: bold; /* To bold the text */
+        }
+
+        .service-description {
+            font-size: 1em;
+        }
+        
+    </style>
+</head>
+
+<body>
+    
+    <header>
+        <a href="Homepage.html" class="logo">FahWallet</a>
+        <ul>
+            <li><a href="Homepage.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="Services.html" class="active">Services</a></li>
+            <li><a href="login.html">Log In</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </header>
+
+    <section class="services-container">
+        <div class="service">
+            <div class="service-icon">💸</div>
+            <div class="service-title">Transfer Money</div>
+            <div class="service-description">Easily transfer money between accounts.</div>
+        </div>
+        <div class="service">
+            <div class="service-icon">💳</div>
+            <div class="service-title">Pay Bills</div>
+            <div class="service-description">Pay your bills online conveniently in a matter of seconds.</div>
+        </div>
+        <div class="service">
+            <div class="service-icon">📄</div>
+            <div class="service-title">Transaction History</div>
+            <div class="service-description">View your transaction history at a glance.</div>
+        </div>
+        <div class="service">
+            <div class="service-icon">👋</div>
+            <div class="service-title">PayWave</div>
+            <div class="service-description">Make contactless payments using PayWave.</div>
+        </div>
+    </section>
+</body>
+
+</html>

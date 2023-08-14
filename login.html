@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(#2b1055, #2a0523);
+            overflow-x: hidden;
+        }
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10000;
+        }
+
+        header .logo {
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 2em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header ul li {
+            list-style: none;
+            margin-left: 20px;
+        }
+
+        header ul li a {
+            text-decoration: none;
+            padding: 6px 15px;
+            color: #fff;
+            border-radius: 20px;
+        }
+
+        header ul li a:hover,
+        header ul li a.active {
+            background: #fff;
+            color: #2b1055;
+        }
+
+        section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            padding: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, #1c0522, transparent);
+            z-index: 1000;
+        }
+
+        section img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        section img#money {
+            mix-blend-mode: screen;
+        }
+
+        #btn {
+            text-decoration: none;
+            display: inline-block;
+            padding: 8px 30px;
+            border-radius: 40px;
+            background: #fff;
+            color: #2b1055;
+            font-size: 1.5em;
+            z-index: 9;
+            transform: translateY(100px);
+        }
+
+        .sec {
+            position: relative;
+            padding: 100px;
+            background: #1c0522;
+        }
+
+        .sec h2 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .sec p {
+            font-size: 1em;
+            color: #fff;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .row h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            color: #fff;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+
+        .why-us {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .why-us h2 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .why-us p {
+            font-size: 1em;
+            color: #fff;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        /* for the log in page*/
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .login-box input[type="text"],
+        .login-box input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .login-box .btn-login {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #2b1055;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        .login-box .btn-login:hover {
+            background-color: #d7c8f0;
+            color: #fff;
+        }
+
+        .login-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .login-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: rgb(235, 222, 233); /* make the font white */
+        }
+
+        .otp-box {
+            display: none;
+            /* Hide the OTP box by default */
+            margin-left: 20px;
+        }
+
+        .otp-box p {
+            color: hsl(0, 24%, 81%);
+        }
+
+        .btn-login {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="Homepage.html" class="logo">FahWallet</a>
+        <ul>
+            <li><a href="Homepage.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="#" class="active">Log In</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </header>
+
+    <section>
+        <img src="login2.jpg" id="login-background">
+    </section>
+
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Login</h2>
+            <form>
+                <input type="text" placeholder="Email or Phone" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit" class="btn-login">LogIn</button>
+            </form>
+            <p>Or</p>
+            <button class="btn-login" onclick="redirectToSignUpSingpass()">Sign Up with SingPass</button>
+            <button class="btn-login" onclick="redirectToSignUp()">Sign Up</button>
+        </div>
+        <div class="otp-box">
+            <h2>OTP</h2>
+            <p>Enter the 6-digit OTP</p>
+            <input type="text" placeholder="Enter OTP" required>
+            <button class="btn-login" onclick="redirectToNextPage()">Submit</button>
+            <button class="btn-login" onclick="redirectToSignUp()">Sign Up</button> 
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to show the OTP box when "Log In" button is clicked
+        const loginButton = document.querySelector('.btn-login');
+        const otpBox = document.querySelector('.otp-box');
+
+        loginButton.addEventListener('click', function () {
+            otpBox.style.display = 'block';
+        });
+    </script>
+    <script>
+        function redirectToSignUpSingpass() {
+            window.location.href = "https://www.singpass.gov.sg/home/ui/login"; // direct so singpass log in page
+        }
+    </script>
+    <script>
+        function redirectToNextPage() {
+            window.location.href = "dashboard.html"; // to direct to next page
+        }
+    </script>
+     <script>
+        function redirectToSignUp() {
+            window.location.href = "signup.html"; // Redirect to signup.html
+        }
+    </script>
+</body>
+
+</html>
